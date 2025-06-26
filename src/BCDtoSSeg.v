@@ -1,13 +1,15 @@
 module BCDtoSSeg (
-    input [3:0] BCD, 
-    output reg [0:6] SSeg, 
+    input [3:0] BCD,
+	 input [3:0] Sel,
+    output reg [6:0] SSeg, 
     output [3:0] an
   );
   
-  assign an = 4'b1110;
+  assign an = Sel;
 
   always @ ( * ) begin
-    case (BCD)
+    case (BCD)     
+
       4'b0000: SSeg = 7'b0000001; // "0"  
   	  4'b0001: SSeg = 7'b1001111; // "1" 
   	  4'b0010: SSeg = 7'b0010010; // "2" 
