@@ -1,12 +1,21 @@
-**** module/scope: BCDtoSSeg
+**** module/scope: sumres4b
+     Flip-Flops   : 0
+     Logic Gates  : 9
+**** module/scope: sumres4b.sum
      Flip-Flops   : 0
      Logic Gates  : 0
-     LPM[5]: 1 unaccounted
-     LOG[13]: 1 unaccounted
-     LOG[14]: 1 unaccounted
+**** module/scope: sumres4b.sum.s1
+     Flip-Flops   : 0
+     Logic Gates  : 5
+**** module/scope: sumres4b.sum.s2
+     Flip-Flops   : 0
+     Logic Gates  : 5
+**** module/scope: sumres4b.sum.s3
+     Flip-Flops   : 0
+     Logic Gates  : 5
+**** module/scope: sumres4b.sum.s4
+     Flip-Flops   : 0
+     Logic Gates  : 5
 **** TOTALS
      Flip-Flops   : 0
-     Logic Gates  : 0
-     LPM[5]: 1 unaccounted
-     LOG[13]: 1 unaccounted
-     LOG[14]: 1 unaccounted
+     Logic Gates  : 29

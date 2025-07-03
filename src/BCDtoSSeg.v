@@ -15,6 +15,7 @@ module BCDtoSSeg (
   	  4'b0111: SSeg = 7'b0001111; // "7" 
   	  4'b1000: SSeg = 7'b0000000; // "8"  
   	  4'b1001: SSeg = 7'b0000100; // "9"
+      4'b1111: SSeg = 7'b1111110; // signo negativo
       default: SSeg = 7'b1111111; // nada 
     endcase
   end
