@@ -1,9 +1,9 @@
-`include "src/divisor_frecuencia.v"
-`include "src/BCD.v"
-`include "src/BCDtoSSeg.v"
-`include "src/sumres4b.v"
-`include "src/sum4b.v"
-`include "src/sum1b_estruc.v"
+`include "src/4_bits/divisor_frecuencia.v"
+`include "src/4_bits/BCD.v"
+`include "src/4_bits/BCDtoSSeg.v"
+`include "src/4_bits/sumres4b.v"
+`include "src/4_bits/sum4b.v"
+`include "src/4_bits/sum1b_estruc.v"
 
 
 module bcp_top (
