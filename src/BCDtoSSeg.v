@@ -1,6 +1,6 @@
 module BCDtoSSeg (
     input [3:0] BCD,
-    output reg [6:0] SSeg,
+    output reg [6:0] SSeg
   );
 
   always @ ( * ) begin

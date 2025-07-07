@@ -1,36 +1,29 @@
-
-
 module sumres4b (
-    input [3:0] A,
-    input [3:0] B,
-    input Sel,
-    output [3:0] So,
-    output Co
+    input  wire [3:0] A,
+    input  wire [3:0] B,
+    input  wire       Sel,     // 0 = A+B , 1 = A-B
+    output wire [3:0] So,      // magnitud (resultado raw de la ALU)
+    output wire       flag     // carry (suma) / borrow (resta)
 );
+    wire [3:0] B_xor;
+    wire [3:0] So_int;
+    wire       Co_int;
 
-    wire Co1, Co2, Co3, Co_wire;
-    wire [3:0] B_xor, So_wire;
+    /* complemento a uno de B cuando Sel=1 */
+    xor (B_xor[0], Sel, B[0]);
+    xor (B_xor[1], Sel, B[1]);
+    xor (B_xor[2], Sel, B[2]);
+    xor (B_xor[3], Sel, B[3]);
 
-    xor(B_xor[0], Sel, B[0]);
-    xor(B_xor[1], Sel, B[1]);
-    xor(B_xor[2], Sel, B[2]);
-    xor(B_xor[3], Sel, B[3]);
-
-    sum4b sum (
-        .A(A),
-        .B(B_xor),
-        .Ci(Sel),
-        .So(So_wire),
-        .Co(Co_wire)
+    /* A + B_xor + Sel */
+    sum4b adder4 (
+        .A  (A),
+        .B  (B_xor),
+        .Ci (Sel),
+        .So (So_int),
+        .Co (Co_int)
     );
-	 
-    xor(So_wire_xor[0], Sel, So_wire[0]);
-    xor(So_wire_xor[1], Sel, So_wire[1]);
-    xor(So_wire_xor[2], Sel, So_wire[2]);
-    xor(So_wire_xor[3], Sel, So_wire[3]);
-    xor(Co_xor, Sel, Co_wire)
-    
-	assign So = So_wire_xor;
-	assign Co = Co_xor;
 
+    assign So   = So_int;
+    assign flag = Co_int ^ Sel;   // carry (Sel=0)  ó  borrow (Sel=1)
 endmodule
